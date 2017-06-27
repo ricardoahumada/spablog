@@ -1,0 +1,34 @@
+<div>
+<h2>Nuevo Post:</h2>
+<form name="form" (ngSubmit)="f.form.valid && save()" #f="ngForm" novalidate>
+		<div [ngClass]="{ 'has-error': f.submitted && !titulo.valid }">
+			<label for="username">Título</label>
+			<input type="text" name="titulo" [(ngModel)]="_post.titulo" #titulo="ngModel" required />
+			<div *ngIf="f.submitted && !titulo.valid" class="help-block">Añade un título</div>
+		</div>
+		<div [ngClass]="{ 'has-error': f.submitted && !texto.valid }">
+			<label for="username">Texto</label>
+			<textarea name="texto" [(ngModel)]="_post.texto" #texto="ngModel" required >
+				
+			</textarea>
+			<div *ngIf="f.submitted && !texto.valid" class="help-block">Añade un texto</div>
+		</div>
+		<h3>Autor:</h3>
+		<div [ngClass]="{ 'has-error': f.submitted && !nombre.valid }">
+			<label for="username">Nombre</label>
+			<input type="text" name="nombre" [(ngModel)]="_post.autor.nombre" #nombre="ngModel" required />
+			<div *ngIf="f.submitted && !nombre.valid" class="help-block">Añade un nombre</div>
+		</div>
+		<div [ngClass]="{ 'has-error': f.submitted && !apellido.valid }">
+			<label for="username">Apellidos</label>
+			<input type="text" name="apellido" [(ngModel)]="_post.autor.apellido" #apellido="ngModel" required />
+			<div *ngIf="f.submitted && !apellido.valid" class="help-block">Añade un apellido</div>
+		</div>
+		
+		<div>
+			<button [disabled]="_loading">Login</button>
+		</div>
+		<div *ngIf="_error" class="alert alert-danger">{{error}}</div>
+	</form>
+
+</div>

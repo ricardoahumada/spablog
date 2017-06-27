@@ -1,0 +1,11 @@
+<div>
+	<h2>Detalle de post</h2>
+
+	<div *ngIf="_post">
+
+		<div>Título: {{_post.titulo}}</div>
+		<div>Título: {{_post.texto}}</div>
+		<div><span *ngIf="_post.autor">{{_post.autor.nombre+' '+_post.autor.apellido}}</span></div>
+	</div>
+	<a [routerLink]="['/posts']">Volver</a>
+</div>

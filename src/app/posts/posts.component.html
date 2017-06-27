@@ -1,0 +1,14 @@
+<div>
+	<h2>Lista de posts</h2>
+	<ul class="lista_posts">
+		
+		<li *ngFor="let item of posts">
+			<span>{{item.titulo}}</span>
+			<span>{{item.texto}}</span>
+			<span *ngIf="item.autor">{{item.autor.nombre+' '+item.autor.apellido}}</span>
+			<span><a [routerLink]="['/posts', item._id.$oid]">ver</a></span>
+		</li>
+	</ul>
+</div>
+
+
